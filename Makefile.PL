@@ -14,6 +14,7 @@ my %WriteMakefileArgs = (
   "BUILD_REQUIRES" => {
     "ElasticSearch" => "0.55",
     "ElasticSearch::TestServer" => 0,
+    "Test::Deep" => 0,
     "Test::Exception" => 0,
     "Test::More" => "0.96"
   },
@@ -29,7 +30,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }

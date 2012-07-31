@@ -2,7 +2,7 @@ NAME
     ElasticSearchX::UniqueKey - Track unique keys in ElasticSearch
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
         use ElasticSearch();
@@ -18,6 +18,25 @@ SYNOPSIS
         $exists  = $uniq->exists( $key_name, $key_id );
         $updated = $uniq->update( $key_name, $old_id, $new_id );
 
+        %failed  = $uniq->multi_create(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        );
+
+        $uniq->multi_delete(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        )
+
+        %failed = $uniq->multi_update(
+            { key_1 => 'old', key_2 => 'old' },
+            { key_1 => 'new', key_2 => 'new' },
+        );
+
+        %failed  = $uniq->multi_exists(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        );
 
         $uniq->delete_index;
         $uniq->delete_type( $key_name );
@@ -77,7 +96,42 @@ METHODS
     First tries to create the new combination "key_name/new_id", otherwise
     returns false. Once created, it then tries to delete the
     "key_name/old_id", and returns true regardless of whether it existed
-    previously or not. It will warn if the old combination didn't exist.
+    previously or not.
+
+  multi_create()
+        %failed = $uniq->multi_create(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        );
+
+    Use "multi_create()" to create several entries at the same time (each
+    $key_name must be different). If it fails to create all the entries,
+    then it will remove any entries that it succeeded in creating, and
+    return a hash of the entries which failed.
+
+  multi_delete()
+        $uniq->multi_delete(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        );
+
+    Use "multi_delete()" to delete several entries at the same time (each
+    $key_name must be different). Returns 1 whether the entries exist or
+    not.
+
+  multi_update()
+        %failed = $uniq->multi_update( \%old, \%new );
+
+    "multi_update()" first tries to create the new keys, then deletes the
+    old keys. Returns a hash of any entries that couldn't be created.
+
+  multi_delete()
+        %failed = $uniq->multi_exists(
+            $key_name_1 => $key_id_1,
+            $key_name_2 => $key_id_2,
+        );
+
+    Returns a hash of any entries that don't exist.
 
   bootstrap()
         $uniq->bootstrap( %settings );

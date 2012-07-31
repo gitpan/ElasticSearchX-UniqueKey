@@ -30,6 +30,7 @@
          "requires" : {
             "ElasticSearch" : "0.55",
             "ElasticSearch::TestServer" : "0",
+            "Test::Deep" : "0",
             "Test::Exception" : "0",
             "Test::More" : "0.96"
          }
@@ -46,6 +47,6 @@
          "web" : "https://github.com/clintongormley/ElasticSearchX-UniqueKey"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }
 
