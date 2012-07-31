@@ -23,4 +23,4 @@ requires:
 resources:
   bugtracker: https://github.com/clintongormley/ElasticSearchX-UniqueKey/issues
   repository: git://github.com/clintongormley/ElasticSearchX-UniqueKey.git
-version: 0.01
+version: 0.02

@@ -2,7 +2,7 @@ NAME
     ElasticSearchX::UniqueKey - Track unique keys in ElasticSearch
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
         use ElasticSearch();
