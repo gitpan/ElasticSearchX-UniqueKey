@@ -2,13 +2,13 @@ NAME
     ElasticSearchX::UniqueKey - Track unique keys in ElasticSearch
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
-        use ElasticSearch();
+        use Search::Elasticsearch::Compat();
         use ElasticSearchX::UniqueKey();
 
-        my $es   = ElasticSearch->new();
+        my $es   = Search::Elasticsearch::Compat->new();
         my $uniq = ElasticSearchX::UniqueKey->new( es => $es );
 
         $uniq->bootstrap();
@@ -42,7 +42,7 @@ SYNOPSIS
         $uniq->delete_type( $key_name );
 
 DESCRIPTION
-    The only unique key available in ElasticSearch is the document ID.
+    The only unique key available in Elasticsearch is the document ID.
     Typically, if you want a document to be unique, you use the unique value
     as the ID. However, sometimes you don't want to do this. For instance,
     you may want to use the email address as a unique identifier for your
@@ -57,7 +57,7 @@ DESCRIPTION
 METHODS
   new()
         my uniq = ElasticSearchX::UniqueKey->new(
-            es      => $es,         # ElasticSearch instance, required
+            es      => $es,         # Search::Elasticsearch::Compat instance, required
             index   => 'index',     # defaults to 'unique_key',
         );
 
@@ -145,14 +145,14 @@ METHODS
         )
 
     In other words, it will have only a single primary shard (instead of the
-    ElasticSearch default of 5), and a replica of that shard on every
-    ElasticSearch node in your cluster.
+    Elasticsearch default of 5), and a replica of that shard on every
+    Elasticsearch node in your cluster.
 
     If you pass in any %settings then the defaults will not be used at all.
 
     See Index Settings
-    <http://www.elasticsearch.org/guide/reference/api/admin-indices-update-s
-    ettings.html> for more.
+    <http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/i
+    ndices-update-settings.html> for more.
 
   delete_index()
         $uniq->delete_index()
@@ -173,10 +173,10 @@ METHODS
   es()
         $es = $uniq->es
 
-    Read-only getter for the ElasticSearch instance.
+    Read-only getter for the Search::Elasticsearch::Compat instance.
 
 SEE ALSO
-    ElasticSearch
+    Search::Elasticsearch::Compat
     Elastic::Model
     <http://www.elasticsearch.org>
 
@@ -191,7 +191,7 @@ BUGS
     your bug as I make changes.
 
 TEST SUITE
-    The full test suite requires a live ElasticSearch cluster to run. CPAN
+    The full test suite requires a live Elasticsearch cluster to run. CPAN
     testers doesn't support this. You can see full test results here:
     <http://travis-ci.org/#!/clintongormley/ElasticSearchX-UniqueKey/builds>
     .
@@ -224,7 +224,7 @@ AUTHOR
     Clinton Gormley <drtech@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Clinton Gormley.
+    This software is copyright (c) 2014 by Clinton Gormley.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
