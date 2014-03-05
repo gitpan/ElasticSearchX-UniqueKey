@@ -3,8 +3,6 @@ abstract: 'Track unique keys in ElasticSearch'
 author:
   - 'Clinton Gormley <drtech@cpan.org>'
 build_requires:
-  Search::Elasticsearch::Compat: '0.10'
-  Search::Elasticsearch::TestServer: '0'
   Test::Deep: '0'
   Test::Exception: '0'
   Test::More: '0.96'
@@ -24,4 +22,4 @@ requires:
 resources:
   bugtracker: https://github.com/clintongormley/ElasticSearchX-UniqueKey/issues
   repository: git://github.com/clintongormley/ElasticSearchX-UniqueKey.git
-version: '0.04'
+version: '0.05'

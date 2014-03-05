@@ -26,13 +26,11 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Search::Elasticsearch::Compat" => "0.10",
-    "Search::Elasticsearch::TestServer" => 0,
     "Test::Deep" => 0,
     "Test::Exception" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.04",
+  "VERSION" => "0.05",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -41,8 +39,6 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
-  "Search::Elasticsearch::Compat" => "0.10",
-  "Search::Elasticsearch::TestServer" => 0,
   "Test::Deep" => 0,
   "Test::Exception" => 0,
   "Test::More" => "0.96",

@@ -1,5 +1,5 @@
 package ElasticSearchX::UniqueKey;
-$ElasticSearchX::UniqueKey::VERSION = '0.04';
+$ElasticSearchX::UniqueKey::VERSION = '0.05';
 use strict;
 use warnings;
 use Carp;
@@ -234,7 +234,7 @@ ElasticSearchX::UniqueKey - Track unique keys in ElasticSearch
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 

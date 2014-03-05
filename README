@@ -2,7 +2,7 @@ NAME
     ElasticSearchX::UniqueKey - Track unique keys in ElasticSearch
 
 VERSION
-    version 0.04
+    version 0.05
 
 SYNOPSIS
         use Search::Elasticsearch::Compat();
